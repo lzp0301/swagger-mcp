@@ -155,17 +155,3 @@ LLM 现在会：
 - 已经知道确切的 path 和 method
 - 需要查看特定接口的详情
 
-## 为什么不会再调用 web_search？
-
-工具描述中明确说明：
-- `search_api_with_details`: "This is the RECOMMENDED tool for most queries about **internal API documentation**"
-- 强调这是**内部 API 文档**，LLM 会优先使用这个工具而不是 web_search
-
-## 测试建议
-
-重启 MCP 服务器后，尝试以下问题：
-1. "查一下获取热力图列表的接口参数和返回值"
-2. "有哪些和店铺相关的接口？"
-3. "getHotDisplayList 接口的返回值结构是什么？"
-
-预期：每个问题都应该只调用一次 `search_api_with_details` 就能得到完整答案。
